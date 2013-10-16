@@ -1,0 +1,19 @@
+[
+{
+  "modid": "RootScience",
+  "name": "RootScience",
+  "description": "Industrial mod",
+  "credits": "",
+  "logoFile": "",
+  "version": "1.0.0",
+  "mcversion": "1.6.2",
+  "authors": [
+    "ATG"
+  ],
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

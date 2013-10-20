@@ -20,7 +20,7 @@
 
 	<property name="mc.version" value="1.6.2"/>
 	<property name="forge.version" value="9.10.1.871"/>
-	<!--	<property name="project.version" value="0.0.0"/>-->
+	<property name="project.version" value="Rev.001"/>
 
 	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip"/>
 
@@ -173,9 +173,12 @@
 			<arg value="reobfuscate_srg.sh"/>
 		</exec>
 
+		
+		<delete dir="${classes.dir}"/>
+		<mkdir dir="${classes.dir}"/>
 		<!-- Copy classes -->
 		<copy todir="${classes.dir}">
-			<fileset dir="${mcp.dir}/bin/minecraft"/>
+			<fileset dir="${mcp.dir}/reobf/minecraft"/>
 		</copy>
 
 		<!-- Copy resources -->
@@ -196,7 +199,7 @@
 
 		<delete dir="${jar.dir}"/>
 		<mkdir dir="${jar.dir}"/>
-		<jar destfile="${jar.dir}/RootScience-${mc.version}-${project.version}.jar" basedir="${classes.dir}"/>
+		<jar destfile="${jar.dir}/\[${mc.version}]RootScience-${project.version}.jar" basedir="${classes.dir}"/>
 	</target>
 
 	<target name="run">

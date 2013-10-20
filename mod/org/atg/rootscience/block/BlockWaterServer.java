@@ -14,18 +14,13 @@ public class BlockWaterServer extends BlockContainer {
 
 	public BlockWaterServer(int par1, Material par2Material) {
 		super(par1, par2Material);
-		this.setCreativeTab(CreativeTabs.tabBlock);//クリエイティブタブの選択
-		this.setUnlocalizedName("blockSample");	//システム名の設定
-		this.setTextureName(RootScienceCore.domain + ":waterserver");	//ブロックのテクスチャの指定
-		//いらないものは消してください
-		this.setHardness(5F);			//硬さ
-		this.setResistance(Block.furnaceIdle.blockResistance);		//爆破耐性
-		this.setStepSound(Block.soundStoneFootstep);	//ブロックの音
+		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setHardness(5F);
+		this.setStepSound(Block.soundStoneFootstep);
 	}
 	
 	@Override
 	public TileEntity createNewTileEntity(World world) {
-		// TileEntityの生成
 		return new TileEntityWaterServer();
 	}
 	

@@ -21,7 +21,10 @@ public abstract class DefaultIDs {
 		corundumPickaxe = waterBox+12,
 		corundumShovel = waterBox+13,
 		corundumAxe = waterBox+14,
-		corundumSword = waterBox+15
+		corundumSword = waterBox+15,
+		ingotCopper = waterBox + 16 ,
+		ingotTin = waterBox + 17 , 
+		ingotSilver = waterBox + 18;
 		;
 	
 	//blocks

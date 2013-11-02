@@ -31,6 +31,10 @@ public abstract class RSRecipes {
 		registerSword(swordRuby , gemRuby , Item.stick);
 		registerSword(swordSapphire , gemSapphire , Item.stick);
 		registerSword(swordCorundum , gemCorundum , Item.stick);
+		
+		GameRegistry.addSmelting(oreCopper.blockID, new ItemStack(ingotCopper), 0);
+		GameRegistry.addSmelting(oreTin.blockID, new ItemStack(ingotTin), 0);
+		GameRegistry.addSmelting(oreSilver.blockID, new ItemStack(ingotSilver), 0);
 	}
 	
 	private static void registerPickaxe(Item out , Item head , Item stick)

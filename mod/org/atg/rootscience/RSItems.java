@@ -15,6 +15,7 @@ import net.minecraft.item.ItemTool;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.Property;
+import net.minecraftforge.oredict.OreDictionary;
 
 public abstract class RSItems {
 	
@@ -24,7 +25,10 @@ public abstract class RSItems {
 	waterBox,
 	gemRuby,
 	gemSapphire, 
-	gemCorundum
+	gemCorundum,
+	ingotCopper,
+	ingotTin,
+	ingotSilver
 	;
 	
 	public static ItemSword
@@ -81,6 +85,10 @@ public abstract class RSItems {
     	Property corundumAxeID = configuration.get("tools" , "CorundumAxe.id", DefaultIDs.corundumAxe);
     	Property corundumSwordID = configuration.get("tools" , "CorundumSword.id", DefaultIDs.corundumSword);
     	
+    	Property ingotCopperID = configuration.get("ingots" , "Copper.id", DefaultIDs.ingotCopper);
+    	Property ingotTinID = configuration.get("ingots" , "Tin.id", DefaultIDs.ingotTin);
+    	Property ingotSilverID = configuration.get("ingots" , "Silver.id", DefaultIDs.ingotSilver);
+    	
     	waterBox = new Item(waterBoxID.getInt()).
 			setCreativeTab(CreativeTabs.tabAllSearch).
 			setUnlocalizedName("waterBox").
@@ -111,11 +119,27 @@ public abstract class RSItems {
     	axeCorundum = (ItemTool)new ItemAxe(corundumAxeID.getInt(), corundumToolEnum).setUnlocalizedName("axeCorundum").setCreativeTab(CreativeTabs.tabTools).setTextureName(RootScienceCore.domain + ":corundumAxe");;
     	swordCorundum = (ItemSword)new ItemSword(corundumSwordID.getInt(), corundumToolEnum).setUnlocalizedName("swordCorundum").setCreativeTab(CreativeTabs.tabTools).setTextureName(RootScienceCore.domain + ":corundumSword");;
     	
+    	ingotCopper = new Item(ingotCopperID.getInt()).
+			setCreativeTab(CreativeTabs.tabAllSearch).
+			setUnlocalizedName("ingotCopper").
+			setTextureName(RootScienceCore.domain + ":ingotCopper");
+    	ingotTin = new Item(ingotTinID.getInt()).
+			setCreativeTab(CreativeTabs.tabAllSearch).
+			setUnlocalizedName("ingotTin").
+			setTextureName(RootScienceCore.domain + ":ingotTin");
+    	ingotSilver = new Item(ingotSilverID.getInt()).
+			setCreativeTab(CreativeTabs.tabAllSearch).
+			setUnlocalizedName("ingotSilver").
+			setTextureName(RootScienceCore.domain + ":ingotSilver");
+    	
     	
     	GameRegistry.registerItem(waterBox, "WaterBox");
     	GameRegistry.registerItem(gemRuby, "Ruby");
     	GameRegistry.registerItem(gemSapphire, "Sapphire");
     	GameRegistry.registerItem(gemCorundum, "Corundum");
+    	GameRegistry.registerItem(ingotCopper, "CopperIngot");
+    	GameRegistry.registerItem(ingotTin, "TinIngot");
+    	GameRegistry.registerItem(ingotSilver, "SilverIngot");
     	
     	GameRegistry.registerItem(pickaxeRuby, "RubyPickaxe");
     	GameRegistry.registerItem(shovelRuby, "RubyShovel");
@@ -134,6 +158,11 @@ public abstract class RSItems {
     	sapphireToolEnum.customCraftingMaterial = gemSapphire;
     	corundumToolEnum.customCraftingMaterial = gemCorundum;
     	
+    	
+    	OreDictionary.registerOre("ingotCopper", ingotCopper);
+    	OreDictionary.registerOre("ingotTin", ingotTin);
+    	OreDictionary.registerOre("ingotSilver", ingotSilver);
+    	
     }
     
     public static void init(FMLInitializationEvent event) {
@@ -141,6 +170,9 @@ public abstract class RSItems {
         LanguageRegistry.addName(gemRuby, "Ruby");
         LanguageRegistry.addName(gemSapphire, "Sapphire");
         LanguageRegistry.addName(gemCorundum, "Corundum");
+        LanguageRegistry.addName(ingotCopper, "Copper ingot");
+        LanguageRegistry.addName(ingotTin, "Tin ingot");
+        LanguageRegistry.addName(ingotSilver, "Silver ingot");
         
     	LanguageRegistry.addName(pickaxeRuby, "Ruby Pickaxe");
     	LanguageRegistry.addName(shovelRuby, "Ruby Shovel");

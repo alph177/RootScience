@@ -1,5 +1,6 @@
 package org.atg.rootscience;
 
+import org.atg.rootscience.block.BlockOreGem;
 import org.atg.rootscience.block.BlockWaterServer;
 
 import net.minecraft.block.Block;
@@ -43,49 +44,49 @@ public class RSBlocks {
     	waterServer = new BlockWaterServer(waterServerID.getInt(), Material.rock);
 		
 		oreFe2O3 = new BlockOre(oreFe2O3ID.getInt()).
-				setTextureName(RootScienceCore.domain + ":OreFe2O3").
+				setTextureName(RootScienceCore.domain + ":oreFe2O3").
 				setHardness(2.0F).
 				setResistance(5.0F).
 				setUnlocalizedName("Hematite").
 				setStepSound(Block.soundStoneFootstep);
 		oreCopper = new BlockOre(oreCopperID.getInt()).
-				setTextureName(RootScienceCore.domain + ":OreCopper").
+				setTextureName(RootScienceCore.domain + ":oreCopper").
 				setHardness(3.0F).
 				setResistance(5.0F).
 				setUnlocalizedName("Coper").
 				setStepSound(Block.soundStoneFootstep);
 		
 		oreTin = new BlockOre(oreTinID.getInt()).
-				setTextureName(RootScienceCore.domain + ":OreTin").
+				setTextureName(RootScienceCore.domain + ":oreTin").
 				setHardness(3.0F).
 				setResistance(5.0F).
 				setUnlocalizedName("Tin").
 				setStepSound(Block.soundStoneFootstep);
 		
 		oreSilver = new BlockOre(oreSilverID.getInt()).
-				setTextureName(RootScienceCore.domain + ":OreSilver").
+				setTextureName(RootScienceCore.domain + ":oreSilver").
 				setHardness(3.0F).
 				setResistance(5.0F).
 				setUnlocalizedName("Silver").
 				setStepSound(Block.soundStoneFootstep);
 						
-		oreRuby = new BlockOre(oreRubyID.getInt()).
+		oreRuby = new BlockOreGem(oreRubyID.getInt() , RSItems.gemRuby.itemID , 1).
 				//setTextureName(StartUpBoosterCore.domain + ":OreRuby").
-				setTextureName(RootScienceCore.domain + ":OreRuby").
+				setTextureName(RootScienceCore.domain + ":oreRuby").
 				setHardness(3.0F).
 				setResistance(5.0F).
 				setUnlocalizedName("Ruby").
 				setStepSound(Block.soundStoneFootstep);
-		oreSapphire = new BlockOre(oreSapphireID.getInt()).
+		oreSapphire = new BlockOreGem(oreSapphireID.getInt() , RSItems.gemSapphire.itemID , 1).
 				//setTextureName(StartUpBoosterCore.domain + ":OreSapphire").
-				setTextureName(RootScienceCore.domain + ":OreSapphire").
+				setTextureName(RootScienceCore.domain + ":oreSapphire").
 				setHardness(3.0F).
 				setResistance(5.0F).
 				setUnlocalizedName("Sapphire").
 				setStepSound(Block.soundStoneFootstep);
-		oreCorundum = new BlockOre(oreCorundumID.getInt()).
+		oreCorundum = new BlockOreGem(oreCorundumID.getInt() , RSItems.gemCorundum.itemID , 1).
 				//setTextureName(StartUpBoosterCore.domain + ":OreCorundum").
-				setTextureName(RootScienceCore.domain + ":OreCorundum").
+				setTextureName(RootScienceCore.domain + ":oreCorundum").
 				setHardness(3.0F).
 				setResistance(5.0F).
 				setUnlocalizedName("Corundum").

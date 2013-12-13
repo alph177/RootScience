@@ -5,6 +5,7 @@ import org.atg.rootscience.TileEntityWaterServer;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCauldron;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -34,6 +35,28 @@ public class FluidLib {
 				counts++;
 			}
 		}
+		
+		if(counts == 0)
+		{
+			int cx , cy , cz;
+			for(ForgeDirection direction : ForgeDirection.VALID_DIRECTIONS)
+			{
+				cx = x + direction.offsetX;
+				cy = y + direction.offsetY;
+				cz = z + direction.offsetZ;
+				if(
+						worldObj.getBlockId(cx,cy,cz) == Block.cauldron.blockID &&
+						(BlockCauldron.func_111045_h_(worldObj.getBlockMetadata(cx,cy,cz))) < 3 &&
+						tank.getFluidAmount() > 1000
+				)
+				{
+					fillCauldron(worldObj, cx, cy, cz);
+					tank.drain(1000, true);
+					break;
+				}	
+			}
+		}
+		
 		for(int i = 0; i < ForgeDirection.VALID_DIRECTIONS.length; i++)
 		{
 			ForgeDirection direction = ForgeDirection.VALID_DIRECTIONS[i];
@@ -45,8 +68,20 @@ public class FluidLib {
 					fluidAmount -= fluidHandler.fill(direction, tank.drain(fluidAmount/counts, !emulate), true);
 				}
 				Block.blocksList[worldObj.getBlockId(x, y, z)].onNeighborTileChange(worldObj, x+direction.offsetX, y + direction.offsetY, z + direction.offsetZ, x, y, z);
-				
 			}
+		}
+	}
+	
+	public static void fillCauldron(World par1World , int x , int y , int z)
+	{
+		int metadata;
+		if(
+				par1World.getBlockId(x, y, z) == Block.cauldron.blockID &&
+				(metadata = BlockCauldron.func_111045_h_(par1World.getBlockMetadata(x, y, z))) < 3	
+		)
+		{
+			par1World.setBlockMetadataWithNotify(x, y, z, metadata+1, 2);
+            par1World.func_96440_m(x, y, z, Block.cauldron.blockID);
 		}
 	}
 

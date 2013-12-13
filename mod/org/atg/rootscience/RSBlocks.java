@@ -41,7 +41,8 @@ public class RSBlocks {
 		Property oreSapphireID = configuration.get("blocks" , "oreSapphire.id" , DefaultIDs.oreSapphire);
 		Property oreCorundumID = configuration.get("blocks" , "oreCorundum.id" , DefaultIDs.oreCorundum);
 		
-    	waterServer = new BlockWaterServer(waterServerID.getInt(), Material.rock);
+    	waterServer = new BlockWaterServer(waterServerID.getInt(), Material.rock).
+    			setTextureName(RootScienceCore.domain + ":waterServer");
 		
 		oreFe2O3 = new BlockOre(oreFe2O3ID.getInt()).
 				setTextureName(RootScienceCore.domain + ":oreFe2O3").

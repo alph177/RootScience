@@ -28,13 +28,13 @@ public class OreGenerator implements IWorldGenerator {
 
 	}
 	private void generateSurface(World world, Random rand, int chunkX, int chunkZ) {
-        generate(oreFe2O3, 4, 8, 48, world, rand, chunkX, chunkZ);
-        generate(oreCopper, 6, 6, 64, world, rand, chunkX, chunkZ);
-        generate(oreTin, 6, 6, 48, world, rand, chunkX, chunkZ);
-        generate(oreSilver, 6, 3, 32, world, rand, chunkX, chunkZ);
-        generate(oreRuby, 3, 4, 24, world, rand, chunkX, chunkZ);
-        generate(oreSapphire, 3, 4, 24, world, rand, chunkX, chunkZ);
-        generate(oreCorundum, 3, 4, 24, world, rand, chunkX, chunkZ);
+        generate(oreFe2O3, 12, 16, 64, world, rand, chunkX, chunkZ);
+        generate(oreCopper, 8, 8, 64, world, rand, chunkX, chunkZ);
+        generate(oreTin, 8, 8, 48, world, rand, chunkX, chunkZ);
+        generate(oreSilver, 8, 6, 48, world, rand, chunkX, chunkZ);
+        generate(oreRuby, 4, 6, 32, world, rand, chunkX, chunkZ);
+        generate(oreSapphire, 4, 6, 32, world, rand, chunkX, chunkZ);
+        generate(oreCorundum, 4, 6, 32, world, rand, chunkX, chunkZ);
 	}
 	
 	private void generate(Block block , int tries , int quantity , int minDepth , World world, Random rand, int chunkX, int chunkZ)
